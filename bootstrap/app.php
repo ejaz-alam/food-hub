@@ -12,6 +12,8 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->group(base_path('routes/web.php'));
 
             $router->middleware(['web', 'auth', 'role:admin'])
+                ->prefix('admin') // url prefix
+                ->name('admin.') //url name prefix
                 ->group(base_path('routes/admin.php'));
         },
         commands: __DIR__.'/../routes/console.php',
