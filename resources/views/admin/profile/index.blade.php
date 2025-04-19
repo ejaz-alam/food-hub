@@ -27,7 +27,7 @@
                             <label>Avatar</label>
                             <div id="image-preview" class="image-preview">
                                 <label for="image-upload" id="image-label">Choose Avatar</label>
-                                <input type="file" name="image" id="image-upload" />
+                                <input type="file" name="avatar" id="image-upload" />
                             </div>
                         </div>
                         <button class="btn btn-primary" type="submit">Save Changes</button>
