@@ -12,7 +12,7 @@
                     <h4>Edit User Profile</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.profile.update') }}" method="POST">
+                    <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
@@ -22,6 +22,13 @@
                         <div class="form-group">
                             <label>Email</label>
                             <input type="text" class="form-control" name="email" value="{{ auth()->user()->email }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Avatar</label>
+                            <div id="image-preview" class="image-preview">
+                                <label for="image-upload" id="image-label">Choose Avatar</label>
+                                <input type="file" name="image" id="image-upload" />
+                            </div>
                         </div>
                         <button class="btn btn-primary" type="submit">Save Changes</button>
                     </form>
@@ -53,4 +60,17 @@
             </div>
         </div>
     </section>
+    @push('scripts')
+        <script>
+            $(document).ready(
+                function (){
+                    $('.image-preview').css({
+                        'background-image' : 'url({{asset(auth()->user()->avatar)}})',
+                        'background-position': 'center center',
+                        'background-size' : 'cover'
+                    });
+                }
+            );
+        </script>
+    @endpush
 @endsection
