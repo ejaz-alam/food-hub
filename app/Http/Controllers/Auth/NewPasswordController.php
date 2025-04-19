@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Service\MessageManager\Messages;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,6 +16,9 @@ use Illuminate\View\View;
 
 class NewPasswordController extends Controller
 {
+    public function __construct(private Messages $messages)
+    {}
+
     /**
      * Display the password reset view.
      */
@@ -51,6 +55,9 @@ class NewPasswordController extends Controller
             }
         );
 
+        if ($status == Password::PASSWORD_RESET) {
+            $this->messages->addSuccessMessage($status);
+        }
         // If the password was successfully reset, we will redirect the user back to
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.

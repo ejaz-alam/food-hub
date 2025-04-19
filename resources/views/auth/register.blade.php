@@ -77,7 +77,7 @@
                                 <div class="col-xl-12">
                                     <div class="fp__login_imput">
                                         <label>email</label>
-                                        <input type="email" placeholder="Email" name="email" required value="{{('email')}}">
+                                        <input type="email" placeholder="Email" name="email" required value="{{old('email')}}">
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
