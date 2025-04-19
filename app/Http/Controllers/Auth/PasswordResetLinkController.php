@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Service\MessageManager\Messages;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -10,6 +11,11 @@ use Illuminate\View\View;
 
 class PasswordResetLinkController extends Controller
 {
+    public function __construct(
+       private Messages $messages
+    ){
+    }
+
     /**
      * Display the password reset link request view.
      */
@@ -35,7 +41,7 @@ class PasswordResetLinkController extends Controller
         $status = Password::sendResetLink(
             $request->only('email')
         );
-
+        $this->messages->addSuccessMessage(__($status));
         return $status == Password::RESET_LINK_SENT
                     ? back()->with('status', __($status))
                     : back()->withInput($request->only('email'))

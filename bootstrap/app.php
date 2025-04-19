@@ -10,7 +10,7 @@ return Application::configure(basePath: dirname(__DIR__))
         function(\Illuminate\Routing\Router $router) {
             $router->middleware('web')
                 ->group(base_path('routes/web.php'));
-
+            // custom admin route
             $router->middleware(['web', 'auth', 'role:admin'])
                 ->prefix('admin') // url prefix
                 ->name('admin.') //url name prefix
