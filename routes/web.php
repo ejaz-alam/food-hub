@@ -3,8 +3,13 @@
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminDashboardController;
 
-Route::get('/', [FrontendController::class, 'execute'])->name('frontend.home'); // frontend seperate controller
+Route::get('/', [FrontendController::class, 'execute'])->name('frontend.home'); // frontend separate controller
+
+
+Route::get('admin/login', [\App\Http\Controllers\Admin\AdminAuthController::class, 'execute'])
+    ->name('admin.login');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
