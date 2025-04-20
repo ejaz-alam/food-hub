@@ -44,7 +44,7 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="dropdown active">
-                <a href="#" ><i class="fas fa-fire"></i><span>General Dashboard</span></a>
+                <a href="{{ route('admin.dashboard') }}" ><i class="fas fa-fire"></i><span>General Dashboard</span></a>
             </li>
             <li class="menu-header">Starter</li>
 {{--            <li class="dropdown">--}}
@@ -56,6 +56,7 @@
 {{--                </ul>--}}
 {{--            </li>--}}
 {{--            <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li>--}}
+            <li><a class="nav-link" href="{{ route('admin.slider') }}"><i class="far fa-square"></i> <span>Sliders</span></a></li>
         </ul>
 
     </aside>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\AdminDashboardController;
 
@@ -15,4 +16,6 @@ Route::put('profile', [AdminProfileController::class, 'update'])
 
 Route::put('profile/password', [AdminProfileController::class, 'updatePassword'])
     ->name('password.update');
+
+Route::get('slider',[SliderController::class, 'execute'] )->name('slider');
 

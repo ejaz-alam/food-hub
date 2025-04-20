@@ -14,6 +14,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{asset ('admin/assets/css/components.css') }}">
+@stack('styles')
     <!-- Start GA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
     <script>
@@ -83,6 +84,6 @@
         success_callback: null          // Default: null
     });
 </script>
-@stack('scripts');
+@stack('scripts')
 </body>
 </html>
