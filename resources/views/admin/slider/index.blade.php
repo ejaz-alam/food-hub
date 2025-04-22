@@ -12,7 +12,7 @@
             <div class="card-header">
                 <h4>Home Page Sliders</h4>
                 <div class="card-header-action">
-                    <a href="#" class="btn btn-primary">
+                    <a href="{{ route('admin.slider.create.new') }}" class="btn btn-primary">
                         {{__('Create New Slider')}}
                     </a>
                 </div>

@@ -19,3 +19,11 @@ Route::put('profile/password', [AdminProfileController::class, 'updatePassword']
 
 Route::get('slider',[SliderController::class, 'execute'] )->name('slider');
 
+Route::get('slider/create/new',[SliderController::class, 'create'] )->name('slider.create.new');
+
+Route::put('slider/create/store',[SliderController::class, 'store'] )->name('slider.create.store');
+
+Route::get('slider/{id}/edit',[SliderController::class, 'edit'] )->name('slider.edit');
+
+Route::delete('slider/{id}/delete',[SliderController::class, 'destroy'] )->name('slider.delete');
+
